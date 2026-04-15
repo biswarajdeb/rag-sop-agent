@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Batch Failure Expert Assistant</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+body{margin:0;font-family:Segoe UI;background:#0f172a;color:#e2e8f0;display:flex;height:100vh}
+#chat-container{flex:2;display:flex;flex-direction:column;border-right:1px solid #1e293b}
+header{padding:15px;background:#020617;color:#38bdf8;font-weight:bold}
+#chat{flex:1;overflow-y:auto;padding:20px}
+.msg{max-width:70%;padding:12px;margin:10px;border-radius:10px;white-space:pre-wrap}
+.user{background:#2563eb;margin-left:auto}
+.bot{background:#1e293b}
+#input-area{display:flex;padding:10px;border-top:1px solid #1e293b}
+input{flex:1;padding:10px;border-radius:8px;border:none;background:#1e293b;color:white}
+button{margin-left:10px;padding:10px;background:#38bdf8;border:none;border-radius:8px}
+#context-panel{flex:1;padding:10px;background:#020617;overflow-y:auto}
+.context-box{background:#1e293b;padding:10px;margin-bottom:10px;border-radius:6px}
+.sql{background:black;color:#22c55e;padding:10px;border-radius:6px;font-family:monospace}
+</style>
+</head>
+<body>
+
+<div id="chat-container">
+<header>🚀 Batch Failure Expert Assistant</header>
+<div id="chat"></div>
+<div id="input-area">
+<input id="q" placeholder="Ask about batch failure..."/>
+<button onclick="ask()">Send</button>
+</div>
+</div>
+
+<div id="context-panel">
+<h3>Relevant Context</h3>
+<div id="context"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
