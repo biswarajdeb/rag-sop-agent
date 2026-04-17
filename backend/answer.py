@@ -10,7 +10,7 @@ import re
 load_dotenv(override=True)
 
 # 🔹 MODEL CONFIG
-MODEL = "groq/openai/gpt-oss-120b"
+MODEL = "openai/gpt-4o-mini"
 
 # 🔹 PATH CONFIG (IMPORTANT: use your SOP DB)
 #DB_NAME = str(Path(__file__).parent.parent / "vector_db_sops")
