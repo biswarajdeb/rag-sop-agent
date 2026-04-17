@@ -27,7 +27,7 @@ chroma = PersistentClient(path=DB_NAME)
 collection = chroma.get_or_create_collection(collection_name)
 
 RETRIEVAL_K = 30
-FINAL_K = 8
+FINAL_K = 3
 
 
 # 🔥 SYSTEM PROMPT (L2 ENGINEER STYLE)
@@ -219,6 +219,11 @@ def make_rag_messages(question, history, chunks):
         + [{"role": "user", "content": question}]
     )
 
+def trim_chunks(chunks, max_chars=500):
+    for chunk in chunks:
+        if hasattr(chunk, "page_content"):
+            chunk.page_content = chunk.page_content[:max_chars]
+    return chunks
 
 # 🔥 MAIN ANSWER FUNCTION
 @retry(wait=wait)
@@ -226,6 +231,7 @@ def answer_question(question: str, history: list[dict] = []):
     print("\n🚀 Processing query:", question)
 
     chunks = fetch_context(question)
+    chunks = trim_chunks(chunks)
 
     messages = make_rag_messages(question, history, chunks)
 
