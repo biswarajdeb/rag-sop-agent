@@ -26,8 +26,8 @@ openai = OpenAI()
 chroma = PersistentClient(path=DB_NAME)
 collection = chroma.get_or_create_collection(collection_name)
 
-RETRIEVAL_K = 30
-FINAL_K = 3
+RETRIEVAL_K = 25
+FINAL_K = 6
 
 
 # 🔥 SYSTEM PROMPT (L2 ENGINEER STYLE)
